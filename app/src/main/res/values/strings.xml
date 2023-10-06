@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Food Recipe App</string>
+    <string name="all_the_delicious_food_on_your_phone">All the delicious food on your phone</string>
+    <string name="enjoy_eating">Enjoy \n Eating</string>
+    <string name="food_delivery_app">Food Delivery App</string>
+    <string name="get_started">Get Started</string>
+</resources>
