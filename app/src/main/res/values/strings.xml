@@ -1,7 +1,29 @@
 <resources>
     <string name="app_name">Food Recipe App</string>
     <string name="all_the_delicious_food_on_your_phone">All the delicious food on your phone</string>
-    <string name="enjoy_eating">Enjoy \n Eating</string>
-    <string name="food_delivery_app">Food Delivery App</string>
+    <string name="enjoy_eating">Enjoy and Eating</string>
+    <string name="food_delivery_app">Food Recipe App</string>
     <string name="get_started">Get Started</string>
+    <string name="burger">Burger</string>
+    <string name="api_key">10a416284e2d468a956f5e24185ff4a1</string>
+    <string-array name="tags">
+        <item>main course</item>
+        <item>side dish</item>
+        <item>dessert</item>
+        <item>appetizer</item>
+        <item>salad</item>
+        <item>bread</item>
+        <item>breakfast</item>
+        <item>soup</item>
+        <item>beverage</item>
+        <item>sauce</item>
+        <item>marinade</item>
+        <item>fingerfood</item>
+        <item>snack</item>
+        <item>drink</item>
+
+
+
+
+    </string-array>
 </resources>
