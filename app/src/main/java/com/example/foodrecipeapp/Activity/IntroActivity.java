@@ -10,7 +10,7 @@ import com.example.foodrecipeapp.Models.MainActivity;
 import com.example.foodrecipeapp.R;
 
 public class IntroActivity extends AppCompatActivity {
-
+// By Anand Devkar
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
