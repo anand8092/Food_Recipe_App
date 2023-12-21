@@ -1,4 +1,4 @@
-package com.example.foodrecipeapp.Activity;
+package com.example.foodrecipeapp.Models;
 
 import android.content.Context;
 import android.media.Image;

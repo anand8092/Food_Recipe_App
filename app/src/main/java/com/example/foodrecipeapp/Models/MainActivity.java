@@ -1,4 +1,4 @@
-package com.example.foodrecipeapp.Activity;
+package com.example.foodrecipeapp.Models;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.example.foodrecipeapp.Adapters.RandomRecipeAdapter;
 import com.example.foodrecipeapp.Listners.RandomRecipeResponseListener;
-import com.example.foodrecipeapp.Models.RandomRecipeApiResponse;
+import com.example.foodrecipeapp.Listners.RecipeClickListener;
 import com.example.foodrecipeapp.R;
 
 import java.util.ArrayList;
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        dialog =new ProgressDialog(this);
+        dialog = new ProgressDialog(this);
         dialog.setTitle("Loading...");
 
 
@@ -79,13 +79,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private final RandomRecipeResponseListener randomRecipeResponseListener = new RandomRecipeResponseListener() {
+//        @Override
+//        public void didFitch(RandomRecipeApiResponse response, String message) {
+////            dialog.dismiss();
+////            recyclerView = findViewById(R.id.recycler_random);
+////            recyclerView.setHasFixedSize(true);
+////            recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this, 1));
+////            randomRecipeAdapter = new RandomRecipeAdapter(MainActivity.this, response.recipes, recipeClickListener);
+////            recyclerView.setAdapter(randomRecipeAdapter);
+//        }
+
         @Override
-        public void didFitch(RandomRecipeApiResponse response, String message) {
+        public void didFetch(RandomRecipeApiResponse response, String message) {
             dialog.dismiss();
             recyclerView = findViewById(R.id.recycler_random);
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this, 1));
-            randomRecipeAdapter = new RandomRecipeAdapter(MainActivity.this, response.recipes);
+            randomRecipeAdapter = new RandomRecipeAdapter(MainActivity.this, response.recipes, recipeClickListener);
             recyclerView.setAdapter(randomRecipeAdapter);
         }
 
@@ -111,6 +121,14 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
 
+        }
+    };
+
+    private final RecipeClickListener recipeClickListener = new RecipeClickListener() {
+        @Override
+        public void onRecipeClicked(String id) {
+            startActivity(new Intent(MainActivity.this, RecipeDetailsActivity.class)
+                    .putExtra("id", id));
         }
     };
 }

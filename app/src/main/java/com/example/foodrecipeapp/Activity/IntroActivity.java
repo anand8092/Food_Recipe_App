@@ -5,8 +5,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
+import com.example.foodrecipeapp.Models.MainActivity;
 import com.example.foodrecipeapp.R;
 
 public class IntroActivity extends AppCompatActivity {
